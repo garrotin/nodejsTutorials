@@ -20,6 +20,7 @@ const watcher = fs.watch(filename, () => connection.write(`File changed ${new Da
 //cleanup
 connection.on('close', () => {
     console.log('Subscriber Disconnected');
+    console.log('simple message');
 watcher.close();
 });
-}).listen(60300, () => console.log('Listening for Subscribers...'));
+}).listen('/tmp/watcher.sock', () => console.log('Listening for Subscribers...'));
